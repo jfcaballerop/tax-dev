@@ -1,0 +1,15 @@
+{
+	"name": "taxdown",
+	"version": "1.0.0",
+	"description": "Level Test",
+	"main": "app.js",
+	"scripts": {
+		"test": "test",
+		"dev": "nodemon app.js"
+	},
+	"author": "jfcaballero@github.com",
+	"license": "ISC",
+	"dependencies": {
+		"nodemon": "^2.0.15"
+	}
+}
