@@ -1,14 +1,39 @@
-const http = require('http');
+const express = require('express');
+const mongoose = require('mongoose');
+const path = require('path');
 
-const hostname = '0.0.0.0';
+const app = express();
+
+app.set('views', path.join(__dirname, './src/views'))
+app.set('view engine', 'ejs');
+
+app.use(express.urlencoded({ extended: false }));
+
+// Connect to MongoDB
+mongoose
+	.connect(
+		'mongodb://mongo:27017/docker-node-mongo',
+		{ useNewUrlParser: true }
+	)
+	.then(() => console.log('MongoDB Connected'))
+	.catch(err => console.log(err));
+
+const Item = require('./src/models/Item');
+
+app.get('/', (req, res) => {
+	Item.find()
+		.then(items => res.render('index', { items }))
+		.catch(err => res.status(404).json({ msg: 'No items found' }));
+});
+
+app.post('/item/add', (req, res) => {
+	const newItem = new Item({
+		name: req.body.name
+	});
+
+	newItem.save().then(item => res.redirect('/'));
+});
+
 const port = 3000;
 
-const server = http.createServer((req, res) => {
-	res.statusCode = 200;
-	res.setHeader('Content-Type', 'text/plain');
-	res.end('Hola Mundo');
-});
-
-server.listen(port, hostname, () => {
-	console.log(`*** El servidor se está ejecutando en http://${hostname}:${port}/`);
-});
+app.listen(port, () => console.log('Server running...'));
