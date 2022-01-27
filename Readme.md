@@ -31,6 +31,21 @@ $ docker-compose down
 ```
 
 ## Configuraciones
+### Environment
+Hay que crear (o inyectar en caso de despliegue) el fichero .env
+
+.env sample
+```
+MONGODB_USER=root
+MONGODB_PASSWORD=123456
+MONGODB_DATABASE=mrknightdb
+MONGODB_LOCAL_PORT=7017
+MONGODB_DOCKER_PORT=27017
+
+NODE_LOCAL_PORT=3000
+NODE_DOCKER_PORT=3000
+```
+
 ### Node
 
 Probar Docker:
