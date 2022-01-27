@@ -1,33 +1,13 @@
 const db = require("../models");
 const Customer = db.customers;
+const CustomerService = require("../services/customer.service")
 
 // Create and Save a new Customer
-exports.create = (req, res) => {
-	// Validate request
-	if (!req.body.title) {
-		res.status(400).send({ message: "Content can not be empty!" });
-		return;
-	}
+exports.create = async (req, res) => {
 
-	// Create a Customer
-	const customer = new Customer({
-		title: req.body.title,
-		description: req.body.description,
-		published: req.body.published ? req.body.published : false
-	});
+	let response = await CustomerService.save(req);
+	res.status(response.status).send(response);
 
-	// Save Customer in the database
-	customer
-		.save(customer)
-		.then(data => {
-			res.send(data);
-		})
-		.catch(err => {
-			res.status(500).send({
-				message:
-					err.message || "Some error occurred while creating the Customer."
-			});
-		});
 };
 
 // Retrieve all Customers from the database.
