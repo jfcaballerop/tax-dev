@@ -32,4 +32,4 @@ COPY . .
 EXPOSE 3000
 
 # Inicia la aplicación al iniciar al contenedor
-CMD nodemon -L --watch . app.js
+CMD npm run dev
