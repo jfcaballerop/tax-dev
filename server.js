@@ -17,26 +17,27 @@ app.use(express.json());  /* bodyParser.json() is deprecated */
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));   /* bodyParser.urlencoded() is deprecated */
 
-// const db = require("./app/models");
-// db.mongoose
-// 	.connect(db.url, {
-// 		useNewUrlParser: true,
-// 		useUnifiedTopology: true
-// 	})
-// 	.then(() => {
-// 		console.log("Connected to the database!");
-// 	})
-// 	.catch(err => {
-// 		console.log("Cannot connect to the database!", err);
-// 		process.exit();
-// 	});
+const db = require("./src/models");
+db.mongoose
+	.connect(db.url, {
+		useNewUrlParser: true,
+		useUnifiedTopology: true
+	})
+	.then(() => {
+		console.log("Connected to the database!");
+	})
+	.catch(err => {
+		console.log("Cannot connect to the database!", err);
+		process.exit();
+	});
 
-// simple route
-// app.get("/", (req, res) => {
-// 	res.json({ message: "Welcome to bezkoder application." });
-// });
+// simple testing route
+app.get("/", (req, res) => {
+	res.json({ message: "Welcome to MrKnight application." });
+});
 
-require("./src/routes/tutorial.routes")(app);
+// Add Customer Routes
+require("./src/routes/customer.routes")(app);
 
 // set port, listen for requests
 const PORT = process.env.NODE_DOCKER_PORT;

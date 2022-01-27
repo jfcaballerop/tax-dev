@@ -5,7 +5,7 @@
  */
 
 require("dotenv").config();
-var app = require('../app');
+var app = require('../server');
 var http = require('http');
 
 /**
@@ -25,7 +25,7 @@ var server = http.createServer(app);
  * Add Routes
  */
 
-require("../src/routes/tutorial.routes")(server);
+require("../src/routes/customer.routes")(server);
 
 
 /**
