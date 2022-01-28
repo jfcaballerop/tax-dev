@@ -253,7 +253,7 @@ exports.findAllActivated = async () => {
 		.then(data => {
 			customerResponse = {
 				...customerResponse,
-				msg: "Customer was deleted successfully.",
+				msg: "Customer was retrieve successfully.",
 				status: 200,
 				data: data
 			}
@@ -269,4 +269,27 @@ exports.findAllActivated = async () => {
 		});
 	return customerResponse;
 
+};
+
+// Find All Customer ACTIVATED OrderByCredit
+exports.findAllAvailableCreditOrderByCredit = async () => {
+	await Customer.find({ active: true }).sort('-availableCredit')
+		.then(data => {
+			customerResponse = {
+				...customerResponse,
+				msg: "Customer order by available Credit was retrieve successfully.",
+				status: 200,
+				data: data
+			}
+		})
+		.catch(err => {
+			customerResponse = {
+				...customerResponse,
+				msg: err.message || "Some error occurred while retrieving customers.",
+				status: isMongoError(err) ? isMongoError(err).httpStatus : 500,
+				data: null
+			}
+
+		});
+	return customerResponse;
 };

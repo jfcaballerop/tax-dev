@@ -12,8 +12,11 @@ module.exports = app => {
 	// Delete ALL
 	router.delete("/", customers.removeAll);
 
-	// Retrieve all published customers
+	// Retrieve all active customers
 	router.get("/activated", customers.getAllActivated);
+
+	// Retrieve all ACTIVE customers order by Credit
+	router.get("/credit", customers.getAllAvailableCredit);
 
 	// Retrieve a single Customer with id
 	router.get("/:id", customers.getOne);
@@ -26,6 +29,7 @@ module.exports = app => {
 
 	// Delete a Customer with id
 	router.delete("/:id", customers.remove);
+
 
 
 	app.use('/api/customers', router);

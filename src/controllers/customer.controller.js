@@ -52,3 +52,10 @@ exports.getAllActivated = async (req, res) => {
 	let response = await CustomerService.findAllActivated();
 	res.status(response.status).send(response);
 };
+
+// Retrieve all ACTIVE customers order by Credit
+exports.getAllAvailableCredit = async (req, res) => {
+	console.log('Controller');
+	let response = await CustomerService.findAllAvailableCreditOrderByCredit();
+	res.status(response.status).send(response);
+};
