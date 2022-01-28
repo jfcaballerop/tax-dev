@@ -1,9 +1,18 @@
 module.exports = mongoose => {
 	var schema = mongoose.Schema(
 		{
-			title: String,
+			userName: { type: String, index: true, unique: true, required: true },
+			name: {
+				firstName: String,
+				lastName: String
+			},
 			description: String,
-			published: Boolean
+			active: { type: Boolean, default: true },
+			city: String,
+			country: String,
+			phone: [String],
+			entryDate: { type: Date, default: Date.now },
+			availableCredit: { type: Number, default: 0 }
 		},
 		{ timestamps: true }
 	);
