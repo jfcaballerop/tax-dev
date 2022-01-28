@@ -1,7 +1,8 @@
 const express = require("express");
 require("dotenv").config();
-// const bodyParser = require("body-parser"); /* deprecated */
-// const cors = require("cors");
+const swaggerUI = require("swagger-ui-express");
+const docs = require('./docs');
+
 
 const app = express();
 
@@ -13,6 +14,9 @@ const app = express();
 
 // parse requests of content-type - application/json
 app.use(express.json());  /* bodyParser.json() is deprecated */
+
+// OpenApi
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(docs));
 
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));   /* bodyParser.urlencoded() is deprecated */
