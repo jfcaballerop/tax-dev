@@ -41,32 +41,6 @@ module.exports = {
 			}
 		}
 	},
-	post: {
-		tags: ['Customer CRUD operations'],
-		description: "Create customer",
-		operationId: "createCustomer",
-		parameters: [
-
-		],
-		requestBody: {
-			content: {
-				'application/json': {
-					schema: {
-						$ref: '#/components/schemas/Customer'
-					}
-				}
-			}
-		},
-		responses: {
-			'201': {
-				description: "Customer created successfully"
-			},
-			'500': {
-				description: 'Server error'
-			}
-		}
-
-	},
 	put: {
 		tags: ['Customer CRUD operations'],
 		description: "Update customer",
