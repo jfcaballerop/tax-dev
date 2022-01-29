@@ -126,3 +126,6 @@ $ cross-env NODE_ENV=dev nodemon index.js
 ```
 	npm init @eslint/config
 ```
+
+- Para las pruebas no se usa TDD y por eso la cobertura no es mucha.
+- No está tipada la aplicación, a falta de incluir en este proyecto el soporte para TypeScript (algo para mí bastante necesario y util).
