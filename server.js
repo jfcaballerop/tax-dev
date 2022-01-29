@@ -1,5 +1,7 @@
+if (process.env.NODE_ENV !== 'prod') {
+	require('dotenv').config();
+}
 const express = require("express");
-require("dotenv").config();
 const swaggerUI = require("swagger-ui-express");
 const docs = require('./docs');
 

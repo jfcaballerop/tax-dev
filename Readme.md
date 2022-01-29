@@ -5,7 +5,9 @@ Proyecto basado en mi antiguo arquetipo **[mkfm-core](https://github.com/jfcabal
 ## Deploy
 
 Se usa *docker-compose* para poder tener el deploy y el live coding simultaneo.
+> Para el control de los accesos a BD y demás se usa *dotenv* y el archivo raíz **.env**
 
+> En el caso de que el entorno se establezca fuera de *PROD* con la variable ***NODE_ENV*** el cual debe ser seteado en un entorno productivo.
 ### Arrancar entorno live coding
 
 *Docker-compose:*
