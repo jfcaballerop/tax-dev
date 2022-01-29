@@ -31,7 +31,8 @@ Se usa *docker-compose* para poder tener el deploy y el live coding simultaneo.
 > En el caso de que el entorno se establezca fuera de *PROD* con la variable ***NODE_ENV*** el cual debe ser seteado en un entorno productivo.
 ### Arrancar entorno live coding
 
-*Docker-compose:*
+Arrancar el entorno con *Docker-compose:*
+
 ```
 $ docker-compose up -d --build
 
@@ -44,9 +45,8 @@ $ docker-compose down
 
 ### Arrancar entorno productivo
 
-Se debe cambiar la ejecución del npm para ejecutar el microservicio de *develop* a *prod*.
+Se debe cambiar la ejecución del npm para ejecutar el microservicio de *develop* a *prod* en el *Dockerfile:*
 
-*Dockerfile:*
 ```
 CMD npm run dev
 .....
@@ -54,7 +54,8 @@ CMD npm start
 
 ```
 
-*Docker-compose:*
+Hecho lo anterior, procedemos a arrancar el entorno *Docker-compose:*
+
 ```
 $ docker-compose up -d --build
 
@@ -62,6 +63,9 @@ $ docker-compose down
 ```
 ***
 ## Configuraciones
+
+El proyecto se deja configurado con el fichero de env. No usar para entorno de proucción e inyectar el suyo propio.
+
 ### Environment
 
 Hay que crear (o inyectar en caso de despliegue) el fichero .env

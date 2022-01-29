@@ -9,4 +9,14 @@ describe('Test string utils', () => {
     const result = concatUpper(mockObj)
     expect(result).toBe('PRUEBA TEST')
   })
+
+  test('Trim last spaces', () => {
+    const mockObj = {
+      firstName: 'prueba',
+      lastName: 'test '
+    }
+
+    const result = concatUpper(mockObj)
+    expect(result).toBe('PRUEBA TEST')
+  })
 })
