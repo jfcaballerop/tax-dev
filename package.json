@@ -7,7 +7,7 @@
 		"test": "cross-env NODE_ENV=test jest --verbose",
 		"dev": "cross-env NODE_ENV=dev nodemon ./server.js",
 		"start": "cross-env NODE_ENV=prod node server.js",
-		"lint": "cross-env NODE_ENV=dev eslint ."
+		"lint": "eslint ."
 	},
 	"author": "jfcaballero@github.com",
 	"license": "ISC",
@@ -28,7 +28,8 @@
 		"eslint-plugin-jest": "^26.0.0",
 		"eslint-plugin-node": "^11.1.0",
 		"eslint-plugin-promise": "^5.2.0",
-		"jest": "^27.4.7"
+		"jest": "^27.4.7",
+		"supertest": "^6.2.2"
 	},
 	"eslintConfig": {
 		"env": {
