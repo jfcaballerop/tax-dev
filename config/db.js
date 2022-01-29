@@ -1,29 +1,17 @@
-// const mongoose = require('mongoose');
-
 const {
 	DB_USER,
 	DB_PASSWORD,
 	DB_HOST,
 	DB_PORT,
 	DB_NAME,
+	DB_NAME_TEST,
+	NODE_ENV
 } = process.env;
 
+// Controlo el acceso a la BD de Test y Otros
+let url = `mongodb://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${(NODE_ENV === 'test') ? DB_NAME_TEST : DB_NAME}?authSource=admin`
+console.info('*** DB ENV=', NODE_ENV, ' URL=', url);
+
 module.exports = {
-	url: `mongodb://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}?authSource=admin`
+	url
 };
-// module.exports = {
-// 	url: "mongodb://localhost:27017/bezkoder_db"
-// };
-// const url = `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOSTNAME}:${MONGO_PORT}/${MONGO_DB}?authSource=admin`;
-// const options = {
-// 	useNewUrlParser: true,
-// 	reconnectTries: Number.MAX_VALUE,
-// 	reconnectInterval: 500,
-// 	connectTimeoutMS: 10000,
-// };
-// mongoose.connect(url, options).then(function () {
-// 	console.log('MongoDB is connected');
-// })
-// 	.catch(function (err) {
-// 		console.log(err);
-// 	});

@@ -1,6 +1,7 @@
 const db = require("../models");
 const Customer = db.customers;
 const CustomerService = require("../services/customer.service")
+const { } = require('../mappers')
 
 // Create and Save a new Customer
 exports.create = async (req, res) => {
@@ -30,7 +31,12 @@ exports.getOne = async (req, res) => {
 
 // Find a single Customer with an userName
 exports.getOneByUserName = async (req, res) => {
+
 	let response = await CustomerService.findOneByUserName(req);
+	response = {
+		...response,
+		data: customerToCustomerDTO(response.data)
+	}
 	res.status(response.status).send(response);
 };
 
@@ -42,7 +48,7 @@ exports.update = async (req, res) => {
 
 // Delete a Customer with the specified id in the request
 exports.remove = async (req, res) => {
-	let response = await CustomerService.delete(req);
+	let response = await CustomerService.deleteOne(req);
 	res.status(response.status).send(response);
 };
 

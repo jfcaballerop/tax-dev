@@ -4,13 +4,14 @@
 	"description": "Level Test",
 	"main": "app.js",
 	"scripts": {
-		"test": "NODE_ENV=test jest --verbose",
-		"dev": "NODE_ENV=dev nodemon ./server.js",
-		"start": "NODE_ENV=prod node server.js"
+		"test": "cross-env NODE_ENV=test jest --verbose",
+		"dev": "cross-env NODE_ENV=dev nodemon ./server.js",
+		"start": "cross-env NODE_ENV=prod node server.js"
 	},
 	"author": "jfcaballero@github.com",
 	"license": "ISC",
 	"dependencies": {
+		"cross-env": "^7.0.3",
 		"dotenv": "^14.3.2",
 		"ejs": "^3.1.6",
 		"express": "^4.17.2",
@@ -21,5 +22,8 @@
 	},
 	"devDependencies": {
 		"jest": "^27.4.7"
+	},
+	"jest": {
+		"testEnvironment": "node"
 	}
 }

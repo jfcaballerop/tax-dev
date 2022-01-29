@@ -1,4 +1,5 @@
 if (process.env.NODE_ENV !== 'prod') {
+	console.log('*** ENV=', process.env.NODE_ENV);
 	require('dotenv').config();
 }
 const express = require("express");

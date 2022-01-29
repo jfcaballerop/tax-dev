@@ -4,7 +4,7 @@ const Customer = db.customers;
 customerResponse = require('../interface/ICustomerResponse')
 
 // Create and Save a new Customer
-exports.save = async (req) => {
+const save = async (req) => {
 	// Validate request
 	if (!req.body.userName) {
 		customerResponse = {
@@ -50,7 +50,7 @@ exports.save = async (req) => {
 };
 
 // Find All
-exports.findAll = async (req) => {
+const findAll = async (req) => {
 	const userName = req.query.userName;
 	var condition = userName ? { userName: { $regex: new RegExp(userName), $options: "i" } } : {};
 
@@ -77,7 +77,7 @@ exports.findAll = async (req) => {
 };
 
 // Delete All
-exports.deleteAll = async (req) => {
+const deleteAll = async (req) => {
 	await Customer.deleteMany({})
 		.then(data => {
 			customerResponse = {
@@ -101,7 +101,7 @@ exports.deleteAll = async (req) => {
 };
 
 // Find a single Customer with an id
-exports.findOne = async (req) => {
+const findOne = async (req) => {
 	const id = req.params.id;
 
 	await Customer.findById(id)
@@ -134,7 +134,7 @@ exports.findOne = async (req) => {
 
 };
 // Find a single Customer with an userName
-exports.findOneByUserName = async (req) => {
+const findOneByUserName = async (req) => {
 	const userName = req.params.userName;
 
 	await Customer.findOne({ userName: userName })
@@ -168,7 +168,7 @@ exports.findOneByUserName = async (req) => {
 };
 
 // Update a Customer by the id in the request
-exports.update = async (req) => {
+const update = async (req) => {
 	if (!req.body) {
 		customerResponse = {
 			...customerResponse,
@@ -212,7 +212,7 @@ exports.update = async (req) => {
 };
 
 // Delete a Customer with the specified id in the request
-exports.delete = async (req) => {
+const deleteOne = async (req) => {
 	const id = req.params.id;
 
 	await Customer.findByIdAndDelete(id, req.body, { useFindAndModify: false })
@@ -248,7 +248,7 @@ exports.delete = async (req) => {
 
 
 // Find all published Customers
-exports.findAllActivated = async () => {
+const findAllActivated = async () => {
 	await Customer.find({ active: true })
 		.then(data => {
 			customerResponse = {
@@ -272,7 +272,7 @@ exports.findAllActivated = async () => {
 };
 
 // Find All Customer ACTIVATED OrderByCredit
-exports.findAllAvailableCreditOrderByCredit = async () => {
+const findAllAvailableCreditOrderByCredit = async () => {
 	await Customer.find({ active: true }).sort('-availableCredit')
 		.then(data => {
 			customerResponse = {
@@ -293,3 +293,15 @@ exports.findAllAvailableCreditOrderByCredit = async () => {
 		});
 	return customerResponse;
 };
+
+module.exports = {
+	save,
+	findAll,
+	deleteAll,
+	findOne,
+	findOneByUserName,
+	update,
+	deleteOne,
+	findAllActivated,
+	findAllAvailableCreditOrderByCredit
+}

@@ -23,7 +23,7 @@ $ docker-compose down
 
 ### Arrancar entorno productivo
 
-Se debe cambiar la ejecución del npm para ejecutar el microservicio de develop a prod.
+Se debe cambiar la ejecución del npm para ejecutar el microservicio de *develop* a *prod*.
 
 *Dockerfile:*
 ```
@@ -79,3 +79,23 @@ Una vez arrancado el entorno se puede probar aquí <http://localhost:3000/api-do
 ## TESTs
 
 Se usa el entorno de *jest* para la realizacion de las pruebas.
+
+### Configuracion MongoDB
+
+Para un entorno de testing final, no se debe usar un schema o DB como tal, sino tirar de Mocks, pero para el ejemplo actual se hace uso de un entorno específico:
+
+	MONGODB_DATABASE_TEST=mrknightdbtest
+
+
+
+
+# NOTAS del @utor
+
+- El equipo para el desarrollo usado es sobre una plataforma de **Window$ 11**, aunque para poder hacer un deploy & code sin perder tiempo, se usa docker-compose.
+- si sobre este entorno se quisiera hacer uso de las variables de entorno entre diferentes plata formas *Mac, Linux o Windows* se podría hacer uso de la herramienta ***cross-ev***
+
+```
+$ npm i cross-env
+...
+$ cross-env NODE_ENV=dev nodemon index.js
+```
