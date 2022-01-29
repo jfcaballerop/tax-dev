@@ -1,7 +1,5 @@
-const customerToCustomerDTO = require("./customerToCustomerDTO");
-
-
+const { customerToCustomerDTO } = require("./customerToCustomerDTO");
 
 module.exports = {
-	customerToCustomerDTO
+	...customerToCustomerDTO
 }

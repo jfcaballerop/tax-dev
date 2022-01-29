@@ -1,7 +1,7 @@
 const db = require("../models");
 const Customer = db.customers;
 const CustomerService = require("../services/customer.service")
-const { } = require('../mappers')
+const { customerToCustomerDTO } = require('../mappers/customerToCustomerDTO')
 
 // Create and Save a new Customer
 exports.create = async (req, res) => {

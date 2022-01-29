@@ -1,4 +1,3 @@
-
 const customerDTO = {
 	id: '',
 	userName: '',
@@ -9,9 +8,7 @@ const customerDTO = {
 	country: '',
 	phone: [],
 	entryDate: Date.now(),
-	availableCredit: 0,
+	availableCredit: 0
 }
 
-module.exports = {
-	customerDTO
-}
+module.exports = { customerDTO };
