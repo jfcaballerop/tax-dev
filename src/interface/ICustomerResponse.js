@@ -1,7 +1,7 @@
 const customerResponse = {
-	msg: '',
-	status: '',
-	data: null
+  msg: '',
+  status: '',
+  data: null
 }
 
-exports = { customerResponse };
+module.exports = { customerResponse }

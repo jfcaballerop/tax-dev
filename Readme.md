@@ -99,3 +99,9 @@ $ npm i cross-env
 ...
 $ cross-env NODE_ENV=dev nodemon index.js
 ```
+
+- Para el Linter se configura de manera inicial
+
+```
+	npm init @eslint/config
+```

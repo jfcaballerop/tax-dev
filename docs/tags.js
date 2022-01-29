@@ -1,5 +1,5 @@
 module.exports = {
-	tags: {
-		name: 'Customer CRUD operations'
-	}
+  tags: {
+    name: 'Customer CRUD operations'
+  }
 }

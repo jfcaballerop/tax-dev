@@ -6,7 +6,8 @@
 	"scripts": {
 		"test": "cross-env NODE_ENV=test jest --verbose",
 		"dev": "cross-env NODE_ENV=dev nodemon ./server.js",
-		"start": "cross-env NODE_ENV=prod node server.js"
+		"start": "cross-env NODE_ENV=prod node server.js",
+		"lint": "cross-env NODE_ENV=dev eslint ."
 	},
 	"author": "jfcaballero@github.com",
 	"license": "ISC",
@@ -21,7 +22,18 @@
 		"swagger-ui-express": "^4.3.0"
 	},
 	"devDependencies": {
+		"eslint": "^7.32.0",
+		"eslint-config-standard": "^16.0.3",
+		"eslint-plugin-import": "^2.25.4",
+		"eslint-plugin-jest": "^26.0.0",
+		"eslint-plugin-node": "^11.1.0",
+		"eslint-plugin-promise": "^5.2.0",
 		"jest": "^27.4.7"
+	},
+	"eslintConfig": {
+		"env": {
+			"jest/globals": true
+		}
 	},
 	"jest": {
 		"testEnvironment": "node"
