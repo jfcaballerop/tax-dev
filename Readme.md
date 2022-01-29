@@ -2,6 +2,27 @@
 
 Proyecto basado en mi antiguo arquetipo **[mkfm-core](https://github.com/jfcaballerop/mkfm-core.git)** actualizado y recortado para la prueba ;)
 
+## Arquetipo
+
+La arquitectura sobre la que se ha basado el proyecto, es una compilación de mejores prácticas y experiencia personal:
+- Estructura del proyecto:
+	- **backups:** sobre todo por si queremos inyectar en el arranque datos a la BD.
+	- **bin:** pudieramos querer sacar la ejecución del servicio ppal fuera del *app.js*
+	- **config:** ficheros de config donde se inyectarían las *env*
+	- **docs:** documentación *OpenApi*
+	- **Querys:** path para guardar aquellas consultas complejas que no quisieramos hacer a través de *Mongoose*
+	- **src:** Carpeta del proeyecto
+		- **controllers** Controladores de la app
+		- **helpers** Funciones de ayuda a los servicios
+		- **inteface** 'Typado' (en caso de usar TypeScript se deja preparado)
+		- **mappers** Mapeadores para transformar DBObjects a DTO
+		- **models** Modelos de DB usados
+		- **routes** Rutas del proyecto que luego son inyectadas a *Express*
+		- **services** Servicios con la lógica de negocio de acceso a DB
+		- **utils** Funciones comunes
+		- **views** Vistas en caso de necesitar, ejemplo: usar *ejs*
+	- **tests:** Carpeta con los tests de *Jest*
+
 ## Deploy
 
 Se usa *docker-compose* para poder tener el deploy y el live coding simultaneo.
@@ -100,7 +121,7 @@ $ npm i cross-env
 $ cross-env NODE_ENV=dev nodemon index.js
 ```
 
-- Para el Linter se configura de manera inicial
+- Para el Linter se configura de manera inicial ESLint con reglas de Standar
 
 ```
 	npm init @eslint/config
