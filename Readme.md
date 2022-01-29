@@ -17,7 +17,9 @@ $ docker-compose up -d --build
 $ docker-compose down
 ```
 
->Tener en cuenta que debemos usar *--build* (al tener dentro además nodemon) nos permite ver los cambios de nuestro código, ya que le indica a COMPOSE que reconstruya la imagen para nuestro contenedor de node.
+> Tener en cuenta que debemos usar *--build* (al tener dentro además nodemon) nos permite ver los cambios de nuestro código, ya que le indica a COMPOSE que reconstruya la imagen para nuestro contenedor de node.
+
+> Por defecto se ha configurado que arranque el entorno de *DEV*, simplemente cambiando el *.dockerfile* o creando varios ficheros para cada entorno se podría usar luego con **Jenkins** para inyectar las variables necesarias.
 
 ### Arrancar entorno productivo
 
