@@ -92,6 +92,8 @@ $ docker run -dp 3000:3000 jfcaballero/tax-dev
 
 ### MongoDB
 
+***NOTA:*** *La BD al ser creada con Docker_compose está sin poblar. Las alternativas pasan por ejecutar los TEST para poblarla apuntando a la BD real y no de TEST o bien ejecutar los endpoints con los ejemplos tal como están en los tests.*
+
 Se configura a través de docker-compose.
 Hay dos cofiguraciones, una para un MongoDB Standalone, y otro para el stack completo.
 
