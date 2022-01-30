@@ -1,6 +1,9 @@
 # Environment
 .env
 
+#DB
+db_test
+
 # Logs
 logs
 *.log
