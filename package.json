@@ -4,9 +4,9 @@
 	"description": "Level Test",
 	"main": "app.js",
 	"scripts": {
-		"test": "cross-env NODE_ENV=test jest --verbose",
-		"dev": "cross-env NODE_ENV=dev nodemon ./server.js",
-		"start": "cross-env NODE_ENV=prod node server.js",
+		"test": "cross-env NODE_ENV=test jest",
+		"dev": "cross-env NODE_ENV=dev nodemon ./bin/server.js",
+		"start": "cross-env NODE_ENV=prod node ./bin/server.js",
 		"lint": "eslint ."
 	},
 	"author": "jfcaballero@github.com",
@@ -37,6 +37,8 @@
 		}
 	},
 	"jest": {
-		"testEnvironment": "node"
+		"testEnvironment": "node",
+		"testTimeout": 20000,
+		"verbose": true
 	}
 }
