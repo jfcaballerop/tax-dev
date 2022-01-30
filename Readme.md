@@ -136,7 +136,7 @@ Se debe arrancar MogoDB standalone como se explica más arriba.
 # NOTAS del @utor
 
 - El equipo para el desarrollo usado es sobre una plataforma de **Window$ 11**, aunque para poder hacer un deploy & code sin perder tiempo, se usa docker-compose.
-- si sobre este entorno se quisiera hacer uso de las variables de entorno entre diferentes plata formas *Mac, Linux o Windows* se podría hacer uso de la herramienta ***cross-ev***
+- si sobre este entorno se quisiera hacer uso de las variables de entorno entre diferentes plata formas *Mac, Linux o Windows* se podría hacer uso de la herramienta ***cross-env***
 
 ```
 $ npm i cross-env
