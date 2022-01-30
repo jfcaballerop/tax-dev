@@ -1,0 +1,4 @@
+{
+    "ignorePatterns": ["db_test/"],
+    "ignorePath": db_test
+}
