@@ -16,7 +16,7 @@ const save = async (req) => {
     // Create a Customer
     const customer = new Customer({
       userName: req.body.userName,
-      name: req.body.userName ? req.body.userName : {},
+      name: req.body.name ? req.body.name : {},
       description: req.body.description ? req.body.description : '',
       active: req.body.active ? req.body.active : true,
       city: req.body.city ? req.body.city : '',
